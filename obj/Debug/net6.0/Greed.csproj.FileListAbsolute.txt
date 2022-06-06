@@ -1,5 +1,0 @@
-C:\Users\ethan\OneDrive\Desktop\CSE 210\Greed\obj\Debug\net6.0\Greed.csproj.AssemblyReference.cache
-C:\Users\ethan\OneDrive\Desktop\CSE 210\Greed\obj\Debug\net6.0\Greed.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\ethan\OneDrive\Desktop\CSE 210\Greed\obj\Debug\net6.0\Greed.AssemblyInfoInputs.cache
-C:\Users\ethan\OneDrive\Desktop\CSE 210\Greed\obj\Debug\net6.0\Greed.AssemblyInfo.cs
-C:\Users\ethan\OneDrive\Desktop\CSE 210\Greed\obj\Debug\net6.0\Greed.csproj.CoreCompileInputs.cache
