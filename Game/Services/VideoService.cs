@@ -1,9 +1,10 @@
 using System.Collections.Generic;
+using Greed.Casting;
 using Raylib_cs;
-using Unit04.Game.Casting;
 
 
-namespace Unit04.Game.Services
+
+namespace Greed.Services
 {
     /// <summary>
     /// <para>Outputs the game state.</para>
@@ -34,6 +35,8 @@ namespace Unit04.Game.Services
             this.frameRate = frameRate;
             this.debug = debug;
         }
+
+        Cast Casting = new Cast();
 
         /// <summary>
         /// Closes the window and releases all resources.

@@ -1,8 +1,9 @@
 using Raylib_cs;
-using Unit04.Game.Casting;
+using Greed.Casting;
 
 
-namespace Unit04.Game.Services
+
+namespace Greed.Services
 {
     /// <summary>
     /// <para>Detects player input.</para>
@@ -51,6 +52,27 @@ namespace Unit04.Game.Services
             if (Raylib.IsKeyDown(KeyboardKey.KEY_DOWN))
             {
                 dy = 1;
+            }
+
+            Point direction = new Point(dx, dy);
+            direction = direction.Scale(cellSize);
+
+            return direction;
+        }
+        
+        public Point GetDirectionPlayer()
+        {
+            int dx = 0;
+            int dy = 0;
+
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_LEFT))
+            {
+                dx = -1;
+            }
+
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT))
+            {
+                dx = 1;
             }
 
             Point direction = new Point(dx, dy);

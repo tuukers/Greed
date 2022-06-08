@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using Unit04.Game.Casting;
-using Unit04.Game.Services;
+using Greed.Casting;
+using Greed.Services;
 
 
-namespace Unit04.Game.Directing
+namespace Greed
 {
     /// <summary>
     /// <para>A person who directs the game.</para>
@@ -50,7 +50,7 @@ namespace Unit04.Game.Directing
         private void GetInputs(Cast cast)
         {
             Actor robot = cast.GetFirstActor("robot");
-            Point velocity = keyboardService.GetDirection();
+            Point velocity = keyboardService.GetDirectionPlayer();
             robot.SetVelocity(velocity);     
         }
 
@@ -62,27 +62,27 @@ namespace Unit04.Game.Directing
         {
             Actor banner = cast.GetFirstActor("banner");
             Actor robot = cast.GetFirstActor("robot");
-            List<Actor> artifacts = cast.GetActors("artifacts");
+            List<Actor> gems = cast.GetActors("gems");
 
             banner.SetText("");
             int maxX = videoService.GetWidth();
             int maxY = videoService.GetHeight();
             robot.MoveNext(maxX, maxY);
 
-            foreach (Actor actor in artifacts)
+            foreach (Actor actor in gems)
             {
                 if (robot.GetPosition().Equals(actor.GetPosition()))
                 {
-                    if (robot.GitPosition().Equals(gem.GetPosition()))
+                    if (robot.GetPosition().Equals(gem.GetGemPosition()))
                     {
 
                     }
-                    else if (robot.GetPosition().Equals(rock.Getposition))
+                    else if (robot.GetPosition().Equals(rock.GetRockposition))
                     {
 
                     }
                     
-                    banner.SetText($"");
+                    banner.SetText($"{score}");
                 }
             } 
         }
@@ -97,6 +97,11 @@ namespace Unit04.Game.Directing
             videoService.ClearBuffer();
             videoService.DrawActors(actors);
             videoService.FlushBuffer();
+        }
+
+        public int ChangeScore()
+        {
+
         }
 
     }

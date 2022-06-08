@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 
 
-namespace Unit04.Game.Casting
+namespace Greed.Casting
 {
     /// <summary>
     /// <para>A collection of actors.</para>
@@ -53,6 +53,7 @@ namespace Unit04.Game.Casting
             }
             return results;
         }
+
 
         /// <summary>
         /// Gets all the actors in the cast.

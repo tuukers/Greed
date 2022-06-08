@@ -1,7 +1,8 @@
 using System;
+using Greed.Casting;
 
 
-namespace Unit04.Game.Casting
+namespace Greed
 {
     /// <summary>
     /// <para>A thing that participates in the game.</para>
