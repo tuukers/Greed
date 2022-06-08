@@ -15,6 +15,7 @@ namespace Greed
     {
         private KeyboardService keyboardService = null;
         private VideoService videoService = null;
+        private int score = 0;
 
         /// <summary>
         /// Constructs a new instance of Director using the given KeyboardService and VideoService.
@@ -62,29 +63,29 @@ namespace Greed
         {
             Actor banner = cast.GetFirstActor("banner");
             Actor robot = cast.GetFirstActor("robot");
-            List<Actor> gems = cast.GetActors("gems");
+            List<Actor> actors = cast.GetActors("gems");
 
-            banner.SetText("");
+            banner.SetText($"Your Score is: {score}");
             int maxX = videoService.GetWidth();
             int maxY = videoService.GetHeight();
             robot.MoveNext(maxX, maxY);
 
-            foreach (Actor actor in gems)
+            foreach (Gem gem in actors)
             {
-                if (robot.GetPosition().Equals(actor.GetPosition()))
+                if (robot.GetPosition().Equals(gem.GetGemPosition()))
                 {
-                    if (robot.GetPosition().Equals(gem.GetGemPosition()))
-                    {
-
-                    }
-                    else if (robot.GetPosition().Equals(rock.GetRockposition))
-                    {
-
-                    }
-                    
-                    banner.SetText($"{score}");
+                   score+=1;
                 }
             } 
+
+            foreach (Rock rock in actors)
+            {
+                if (robot.GetPosition().Equals(rock.GetRockPosition()))
+                {
+                   score-=1;
+                }
+            }
+            banner.SetText($"Your Score is: {score}");  
         }
 
         /// <summary>
@@ -98,11 +99,5 @@ namespace Greed
             videoService.DrawActors(actors);
             videoService.FlushBuffer();
         }
-
-        public int ChangeScore()
-        {
-
-        }
-
     }
 }
