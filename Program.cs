@@ -44,7 +44,7 @@ namespace Unit04
             robot.SetText("#");
             robot.SetFontSize(FONT_SIZE);
             robot.SetColor(WHITE);
-            robot.SetPosition(new Point(MAX_X / 2, 2));
+            robot.SetPosition(new Point(MAX_X / 2, MAX_Y - 15));
             cast.AddActor("robot", robot);
 
 
@@ -55,7 +55,7 @@ namespace Unit04
                 string text = "*";
 
                 int x = random.Next(1, COLS);
-                int y = random.Next(1, ROWS);
+                int y = random.Next(1, 5);
                 Point position = new Point(x, y);
                 position = position.Scale(CELL_SIZE);
 
@@ -78,7 +78,7 @@ namespace Unit04
                 string text = "O";
 
                 int x = random.Next(1, COLS);
-                int y = random.Next(1, ROWS);
+                int y = random.Next(1,5);
                 Point position = new Point(x, y);
                 position = position.Scale(CELL_SIZE);
 

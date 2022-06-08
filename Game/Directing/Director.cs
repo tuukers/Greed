@@ -16,6 +16,7 @@ namespace Greed
         private KeyboardService keyboardService = null;
         private VideoService videoService = null;
         private int score = 0;
+        private Point fallVelocity= new Point(0,1);
 
         /// <summary>
         /// Constructs a new instance of Director using the given KeyboardService and VideoService.
@@ -52,7 +53,28 @@ namespace Greed
         {
             Actor robot = cast.GetFirstActor("robot");
             Point velocity = keyboardService.GetDirectionPlayer();
-            robot.SetVelocity(velocity);     
+            robot.SetVelocity(velocity);  
+            List<Actor> gems = cast.GetActors("gem");
+            List<Actor> rocks = cast.GetActors("rock");
+
+
+            foreach (Gem gem in gems)
+            {
+                int maxX = videoService.GetWidth();
+                int maxY = videoService.GetHeight();
+                gem.SetVelocity(fallVelocity);
+                gem.MoveNext(maxX, maxY);
+
+            } 
+
+            foreach (Rock rock in rocks)
+            {
+                int maxX = videoService.GetWidth();
+                int maxY = videoService.GetHeight();
+                rock.SetVelocity(fallVelocity);
+                rock.MoveNext(maxX, maxY);
+            }
+
         }
 
         /// <summary>
@@ -63,14 +85,15 @@ namespace Greed
         {
             Actor banner = cast.GetFirstActor("banner");
             Actor robot = cast.GetFirstActor("robot");
-            List<Actor> actors = cast.GetActors("gems");
+            List<Actor> gems = cast.GetActors("gem");
+            List<Actor> rocks = cast.GetActors("rock");
 
             banner.SetText($"Your Score is: {score}");
             int maxX = videoService.GetWidth();
             int maxY = videoService.GetHeight();
             robot.MoveNext(maxX, maxY);
 
-            foreach (Gem gem in actors)
+            foreach (Gem gem in gems)
             {
                 if (robot.GetPosition().Equals(gem.GetGemPosition()))
                 {
@@ -78,7 +101,7 @@ namespace Greed
                 }
             } 
 
-            foreach (Rock rock in actors)
+            foreach (Rock rock in rocks)
             {
                 if (robot.GetPosition().Equals(rock.GetRockPosition()))
                 {
