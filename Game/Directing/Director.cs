@@ -16,7 +16,10 @@ namespace Greed
         private KeyboardService keyboardService = null;
         private VideoService videoService = null;
         private int score = 0;
-        private Point fallVelocity= new Point(0,1);
+        private static int COLS = 60;
+        private static int ROWS = 40;
+        private Random random = new Random();
+        
 
         /// <summary>
         /// Constructs a new instance of Director using the given KeyboardService and VideoService.
@@ -60,6 +63,8 @@ namespace Greed
 
             foreach (Gem gem in gems)
             {
+                Point fallVelocity= new Point(0,15*random.Next(1,3));
+
                 int maxX = videoService.GetWidth();
                 int maxY = videoService.GetHeight();
                 gem.SetVelocity(fallVelocity);
@@ -69,6 +74,8 @@ namespace Greed
 
             foreach (Rock rock in rocks)
             {
+                Point fallVelocity= new Point(0,15*random.Next(1,3));
+
                 int maxX = videoService.GetWidth();
                 int maxY = videoService.GetHeight();
                 rock.SetVelocity(fallVelocity);
@@ -97,7 +104,13 @@ namespace Greed
             {
                 if (robot.GetPosition().Equals(gem.GetGemPosition()))
                 {
-                   score+=1;
+                    score+=1;
+                    int x = 15*random.Next(1, maxX/15);
+                    int y = 5*random.Next(1, 2);
+
+                    Point newposition = new Point(x,y);
+
+                    gem.SetPosition(newposition);
                 }
             } 
 
@@ -105,7 +118,13 @@ namespace Greed
             {
                 if (robot.GetPosition().Equals(rock.GetRockPosition()))
                 {
-                   score-=1;
+                    score-=1;
+                    int x = 15*random.Next(1, maxX/15);
+                    int y = 5*random.Next(1, 2);
+
+                    Point newposition = new Point(x,y);
+                   
+                    rock.SetPosition(newposition);
                 }
             }
             banner.SetText($"Your Score is: {score}");  
