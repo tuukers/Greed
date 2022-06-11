@@ -63,7 +63,7 @@ namespace Greed
 
             foreach (Gem gem in gems)
             {
-                Point fallVelocity= new Point(0,15*random.Next(1,3));
+                Point fallVelocity= new Point(0,5);
 
                 int maxX = videoService.GetWidth();
                 int maxY = videoService.GetHeight();
@@ -74,7 +74,7 @@ namespace Greed
 
             foreach (Rock rock in rocks)
             {
-                Point fallVelocity= new Point(0,15*random.Next(1,3));
+                Point fallVelocity= new Point(0,5);
 
                 int maxX = videoService.GetWidth();
                 int maxY = videoService.GetHeight();
@@ -106,7 +106,7 @@ namespace Greed
                 {
                     score+=1;
                     int x = 15*random.Next(1, maxX/15);
-                    int y = 5*random.Next(1, 2);
+                    int y = 5*random.Next(1, 7);
 
                     Point newposition = new Point(x,y);
 
@@ -120,7 +120,7 @@ namespace Greed
                 {
                     score-=1;
                     int x = 15*random.Next(1, maxX/15);
-                    int y = 5*random.Next(1, 2);
+                    int y = 5*random.Next(1, 7);
 
                     Point newposition = new Point(x,y);
                    

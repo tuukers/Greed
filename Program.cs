@@ -7,7 +7,7 @@ using Greed;
 using Greed.Services;
 
 
-namespace Unit04
+namespace Greed
 {
     /// <summary>
     /// The program's entry point.
@@ -53,10 +53,10 @@ namespace Unit04
             for (int i = 0; i < Default_Gems; i++)
             {
                 string text = "*";
-                Point fallVelocity= new Point(0,15*random.Next(1,2));
+                Point fallVelocity= new Point(0,5);
 
-                int x = 5*random.Next(1, MAX_X/5);
-                int y = 15*random.Next(1, 2);
+                int x = 15*random.Next(1, MAX_X/15);
+                int y = 5*random.Next(1, 7);
                 Point position = new Point(x, y);
                 position = position.Scale(CELL_SIZE);
 
@@ -79,11 +79,11 @@ namespace Unit04
             for (int i = 0; i < Default_Rocks; i++)
             {
                 string text = "O";
-                Point fallVelocity= new Point(0,15*random.Next(1,2));
+                Point fallVelocity= new Point(0,5);
 
 
-                int x = 5*random.Next(1, MAX_X/5);
-                int y = 5*random.Next(1,2);
+                int x = 15*random.Next(1, MAX_X/15);
+                int y = 5*random.Next(1,7);
                 Point position = new Point(x, y);
                 position = position.Scale(CELL_SIZE);
 
@@ -103,8 +103,7 @@ namespace Unit04
             }
             // start the game
             KeyboardService keyboardService = new KeyboardService(CELL_SIZE);
-            VideoService videoService 
-                = new VideoService(CAPTION, MAX_X, MAX_Y, CELL_SIZE, FRAME_RATE, false);
+            VideoService videoService = new VideoService(CAPTION, MAX_X, MAX_Y, CELL_SIZE, FRAME_RATE, false);
             Director director = new Director(keyboardService, videoService);
             director.StartGame(cast);
         }
