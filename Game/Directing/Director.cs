@@ -106,7 +106,7 @@ namespace Greed
                 {
                     score+=1;
                     int x = 15*random.Next(1, maxX/15);
-                    int y = 5*random.Next(1, 7);
+                    int y = 5*random.Next(1, 4);
 
                     Point newposition = new Point(x,y);
 
@@ -120,7 +120,7 @@ namespace Greed
                 {
                     score-=1;
                     int x = 15*random.Next(1, maxX/15);
-                    int y = 5*random.Next(1, 7);
+                    int y = 5*random.Next(1, 4);
 
                     Point newposition = new Point(x,y);
                    

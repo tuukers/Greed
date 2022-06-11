@@ -23,8 +23,8 @@ namespace Greed
         private static int ROWS = 40;
         private static string CAPTION = "Greed";
         private static Color WHITE = new Color(255, 255, 255);
-        private static int Default_Gems = 20;
-        private static int Default_Rocks = 20;
+        private static int Default_Gems = 15;
+        private static int Default_Rocks = 15;
         
 
         static void Main(string[] args)
@@ -55,8 +55,8 @@ namespace Greed
                 string text = "*";
                 Point fallVelocity= new Point(0,5);
 
-                int x = 15*random.Next(1, MAX_X/15);
-                int y = 5*random.Next(1, 7);
+                int x = random.Next(1, MAX_X);
+                int y = 5*random.Next(1, 4);
                 Point position = new Point(x, y);
                 position = position.Scale(CELL_SIZE);
 
@@ -82,8 +82,8 @@ namespace Greed
                 Point fallVelocity= new Point(0,5);
 
 
-                int x = 15*random.Next(1, MAX_X/15);
-                int y = 5*random.Next(1,7);
+                int x = random.Next(1, MAX_X);
+                int y = 5*random.Next(1,4);
                 Point position = new Point(x, y);
                 position = position.Scale(CELL_SIZE);
 
